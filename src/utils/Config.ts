@@ -77,7 +77,7 @@ export class Config<Structure> {
 		if (this.type === 'json') {
 			await writeFile(
 				['config', `${this.name}.json`],
-				JSON.stringify(data),
+				JSON.stringify(data, null, 4),
 			);
 		} else {
 			await writeFile(
@@ -124,7 +124,7 @@ export class Config<Structure> {
 		if (this.type === 'json') {
 			await writeFile(
 				['config', `${this.name}.json`],
-				JSON.stringify(this.defaults),
+				JSON.stringify(this.defaults, null, 4),
 			);
 		} else {
 			await writeFile(

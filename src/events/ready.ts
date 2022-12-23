@@ -1,18 +1,18 @@
-import { ChannelType } from 'discord.js';
+import { ChannelType, Events } from 'discord.js';
 
 import { DiscordEvent } from '../classes/DiscordEvent.js';
 import { CheckThrottle, Throttle } from '../core/Throttle.js';
 import { server } from '../server.js';
 
-export const event = new DiscordEvent('ready').once((client) => {
+export const event = new DiscordEvent(Events.ClientReady).once((client) => {
 	server(client);
 
 	client.logger.info(`[Discord] ${client.user.tag} / ${client.user.id}`);
 
-	client.on('interactionCreate', async (ctx) => {
+	client.on(Events.InteractionCreate, async (ctx) => {
 		if (
 			ctx.user.bot ||
-			!ctx.isCommand() ||
+			!ctx.isChatInputCommand() ||
 			!ctx.guild ||
 			ctx.channel?.type !== ChannelType.GuildText ||
 			!ctx.inCachedGuild()

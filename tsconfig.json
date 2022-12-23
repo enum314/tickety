@@ -6,7 +6,6 @@
 		"allowUnreachableCode": false,
 		"allowUnusedLabels": false,
 		"alwaysStrict": true,
-		"baseUrl": "src",
 		"composite": false,
 		"declaration": true,
 		"declarationMap": false,

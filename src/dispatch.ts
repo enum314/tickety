@@ -1,10 +1,10 @@
 import 'dotenv/config';
 
 import { REST } from '@discordjs/rest';
+import { Routes } from 'discord.js';
 
 import Logger from './core/Logger.js';
 import { registerCommands } from './core/registerCommands.js';
-import { Routes } from 'discord.js';
 
 const token = process.env.DISCORD_TOKEN as string;
 const clientId = process.env.DISCORD_CLIENT_ID as string;

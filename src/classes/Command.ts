@@ -1,5 +1,5 @@
 import {
-	CommandInteraction,
+	ChatInputCommandInteraction,
 	PermissionsString,
 	SlashCommandBuilder,
 	SlashCommandOptionsOnlyBuilder,
@@ -17,7 +17,9 @@ export class Command {
 	private _clientPermissions!: PermissionsString[];
 	private _userPermissions!: PermissionsString[];
 
-	private _run!: (ctx: CommandInteraction<'cached'>) => Promise<any> | any;
+	private _run!: (
+		ctx: ChatInputCommandInteraction<'cached'>,
+	) => Promise<any> | any;
 
 	public constructor(private _name: string) {}
 
@@ -90,7 +92,7 @@ export class Command {
 	}
 
 	public dispatch(
-		fn: (ctx: CommandInteraction<'cached'>) => Promise<any> | any,
+		fn: (ctx: ChatInputCommandInteraction<'cached'>) => Promise<any> | any,
 	) {
 		this._run = fn;
 

@@ -7,7 +7,11 @@ import { registerCommands } from './core/registerCommands.js';
 import { registerEvents } from './core/registerEvents.js';
 
 const client = new Client({
-	intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
+	intents: [
+		GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildMessages,
+		GatewayIntentBits.MessageContent,
+	],
 });
 
 client.logger.info('Loading...');
